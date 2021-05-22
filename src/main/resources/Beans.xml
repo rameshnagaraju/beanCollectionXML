@@ -1,0 +1,63 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- Definition for empCollection -->
+
+    <bean id = "empCollection" class = "com.rameshn.beanCollectionXML.EmpCollection">
+
+        <!-- results in a setEmpList(java.util.List) call -->
+        <!-- This helps in wiring ie injecting a list of values, allowing duplicates.-->
+        <property name = "empList">
+            <list>
+                <value>Ram</value>
+                <value>Sham</value>
+                <value>Tom</value>
+                <value>Joe</value>
+            </list>
+        </property>
+
+        <!-- results in a setEmpSet(java.util.Set) call  -->
+        <!-- This helps in wiring a set of values but without any duplicates.-->
+        <property name = "empSet">
+            <set>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+            </set>
+        </property>
+
+        <!-- results in a setEmpMap(java.util.Map) call -->
+        <!-- This can be used to inject a collection of name-value pairs
+         where name and value can be of any type. -->
+        <property name = "empMap">
+            <map>
+                <entry key = "1" value = "CEO"/>
+                <entry key = "2" value = "Manager"/>
+                <entry key = "3" value = "Staff Engineer"/>
+                <entry key = "4" value = "Trainee"/>
+            </map>
+        </property>
+
+        <!-- results in a setEmpProp(java.util.Properties) call -->
+        <!-- This can be used to inject a collection of name-value pairs where
+         the name and value are both Strings.-->
+        <property name = "empProp">
+            <props>
+                <prop key = "one">CEO</prop>
+                <prop key = "two">Manager</prop>
+                <prop key = "three">Staff Engineer</prop>
+                <!-- passing a empty string-->
+                <prop key = "four"></prop>
+            </props>
+        </property>
+
+
+    </bean>
+
+
+</beans>
